@@ -24,7 +24,7 @@ export class RecommenderService {
   constructor(private http: HttpClient, private authService: AuthService) {
   }
 
-  getProduct(customer: Customer): Observable<Array<Product>> {
+  getProduct(customer: Customer): Observable<Product[]> {
     const options: object = {
       responseType: 'json',
       headers: new HttpHeaders()
@@ -33,7 +33,7 @@ export class RecommenderService {
       params: customer
     };
 
-    return this.http.get<Array<Product>>(`${service}api/products`, options);
+    return this.http.get<Product[]>(`${service}api/products`, options);
   }
 
 }

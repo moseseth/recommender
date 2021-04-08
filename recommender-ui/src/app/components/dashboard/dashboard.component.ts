@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Customer, Product, RecommenderService} from '../../services/recommender.service';
+import {first} from 'rxjs/operators';
+import {Customer, RecommenderService} from '../../services/recommender.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,7 @@ export class DashboardComponent {
       return false;
     } else {
       this.recommenderService.getProduct(dashboardForm.value as Customer)
+        .pipe(first())
         .subscribe(data => this.products =
           data.map(value => value.type)
         );

@@ -4,6 +4,7 @@ import com.seb.recommender.security.models.AuthenticationRequest;
 import com.seb.recommender.security.models.AuthenticationResponse;
 import com.seb.recommender.security.services.UserService;
 import com.seb.recommender.security.utils.JwtUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -15,12 +16,17 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class AuthenticationController {
     private final AuthenticationManager authenticationManager;
     private final UserService userService;
     private final JwtUtil jwtUtil;
 
-    public AuthenticationController(AuthenticationManager authenticationManager, UserService userService, JwtUtil jwtUtil) {
+    public AuthenticationController(
+            AuthenticationManager authenticationManager,
+            UserService userService,
+            JwtUtil jwtUtil
+    ) {
         this.authenticationManager = authenticationManager;
         this.userService = userService;
         this.jwtUtil = jwtUtil;
@@ -33,6 +39,7 @@ public class AuthenticationController {
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
             );
         } catch (BadCredentialsException exception) {
+            log.error(exception.getMessage());
             throw new Exception("Incorrect username or password", exception);
         }
 

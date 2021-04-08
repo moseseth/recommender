@@ -2,6 +2,7 @@ package com.seb.recommender.services;
 
 import com.seb.recommender.pojos.Customer;
 import com.seb.recommender.pojos.Product;
+import lombok.extern.slf4j.Slf4j;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class RecommenderService {
     private final KieContainer kieContainer;
 
@@ -26,7 +28,7 @@ public class RecommenderService {
             kieSession.setGlobal("products", new ArrayList<>());
             kieSession.fireAllRules();
         } catch (Throwable exception) {
-            exception.printStackTrace();
+            log.error(exception.getMessage());
         } finally {
             kieSession.dispose();
         }

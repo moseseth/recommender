@@ -1,16 +1,13 @@
 package com.seb.recommender.security.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Setter
-@Getter
+@Data
+@NoArgsConstructor
 public class AuthenticationRequest {
     private String username;
     private String password;
-
-    public AuthenticationRequest() {
-    }
 
     public AuthenticationRequest(String username, String password) {
         this.username = username;
