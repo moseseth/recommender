@@ -16,7 +16,7 @@ development and testing purposes
 ### Prerequisites
 
 - Docker Desktop
-- Login as `username: sandbox  password: seb2021`
+- Login as username: `sandbox`  password: `seb2021`
 
 
 ### Installing
@@ -27,17 +27,18 @@ cd recommender/
 docker-compose up -d
 ```
 
--[x] Backend runs as a spring boot app: http://localhost:8080
--[x] Frontend runs as an angular app: http://localhost:4200
--[x] Available endpoints:
+- [x] Backend runs as a spring boot app: http://localhost:8080
+- [x] Frontend runs as an angular app: http://localhost:4200
+- [x] Available endpoints:
+
 ```
 * api/auth (POST) {username, password}
 * api/products?age=18&income=1000&student=0 (GET)
+```
 
-N.B. 
-+ uses for query string: student - (yes - 1) and (no - 0)
-+ access to /api/products is restricted, 
-                           use _Authorization: Bearer XXXX_
+Note:
+```
++ access to /api/products is restricted, use Authorization: Bearer XXXX in header
 ```
 
 ### Running the tests
