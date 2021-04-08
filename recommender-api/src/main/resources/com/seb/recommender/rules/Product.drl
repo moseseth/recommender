@@ -1,0 +1,63 @@
+package com.seb.recommender.rules;
+
+import java.util.List;
+import com.seb.recommender.pojos.Product;
+import com.seb.recommender.pojos.Customer;
+
+global List<Product> products;
+
+rule "Current Account"
+when
+$customer: Customer(age > 17 && income > 0)
+then
+products.add(new Product("Current Account"));
+end
+
+rule "Current Account Plus"
+when
+$customer: Customer(age > 17 && income > 40000)
+then
+products.add(new Product("Current Account Plus"));
+end
+
+rule "Junior Saver Account"
+when
+$customer: Customer(age < 18)
+then
+products.add(new Product("Junior Saver Account"));
+end
+
+rule "Student Account"
+when
+$customer: Customer(student && age > 17)
+then
+products.add(new Product("Student Account"));
+end
+
+rule "Senior Account"
+when
+$customer: Customer(age >= 65)
+then
+products.add(new Product("Senior Account"));
+end
+
+rule "Debit Card"
+when
+$customer: Customer(age > 17 && income < 12001)
+then
+products.add(new Product("Debit Card"));
+end
+
+rule "Credit Card"
+when
+$customer: Customer(age > 17 && income > 12000)
+then
+products.add(new Product("Credit Card"));
+end
+
+rule "Gold Credit Card"
+when
+$customer: Customer(age > 17 && income > 40000)
+then
+products.add(new Product("Gold Credit Card"));
+end

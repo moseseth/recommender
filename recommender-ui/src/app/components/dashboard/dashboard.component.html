@@ -1,0 +1,42 @@
+<div class="container">
+  <form #dashboardForm="ngForm" (submit)="submitForm(dashboardForm)">
+    <h1>Find out for which services you are eligible</h1>
+    <div class="question">
+      <p>What is your age?</p>
+      <label>
+        <input type="radio" name="age" value="17" ngModel required>0-17</label>
+      <label>
+        <input type="radio" name="age" value="18" ngModel required>18-64</label>
+      <label>
+        <input type="radio" name="age" value="65" ngModel required>65+</label>
+    </div>
+    <div class="question">
+      <p>Are you a student?</p>
+      <label>
+        <input type="radio" name="student" value="1" ngModel required>Yes</label>
+      <label>
+        <input type="radio" name="student" value="0" ngModel required>No</label>
+    </div>
+    <div class="question">
+      <p>How much is your income?</p>
+      <label>
+        <input type="radio" name="income" value="0" ngModel required>0</label>
+      <label>
+        <input type="radio" name="income" value="12000" ngModel required>1-12000</label>
+      <label>
+        <input type="radio" name="income" value="12001" ngModel required>12001-40000</label>
+      <label>
+        <input type="radio" name="income" value="40001" ngModel required>40000+</label>
+    </div>
+    <div class="invalid-feedback" *ngIf="isSubmitted && dashboardForm.invalid">
+      <p>Please make sure you have answered all questions</p>
+    </div>
+    <input type="submit"/>
+  </form>
+
+  <div class="card">
+    <div *ngFor="let data of products">
+      <p>{{data}}</p>
+    </div>
+  </div>
+</div>

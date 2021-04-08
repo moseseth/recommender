@@ -1,0 +1,42 @@
+@import "./src/scss/variables";
+
+p {
+  font-size: 24px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-size: 24px;
+  color: brown;
+}
+
+input[type=submit] {
+  background-color: black;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100px;
+  margin-top: 10px;
+}
+
+.invalid-feedback {
+  color: #E91E63;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+  grid-gap: 10px;
+
+}
+.card div {
+  background-color: #ecf0f1;
+  padding: 10px 10px;
+  & p {
+    text-align: center;
+  }
+}

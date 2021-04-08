@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: app
+    build: ./recommender-ui
+    depends_on:
+      - api
+    ports:
+      - 4200:80
+    networks:
+      - frontend
+  api:
+    container_name: api
+    build: ./recommender-api
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:

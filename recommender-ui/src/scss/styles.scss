@@ -1,0 +1,82 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,900;1,200&display=swap');
+
+body {
+  font-family: $font-family;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+  & .error {
+    color: red;
+  }
+
+  .login-form {
+    width: 20%;
+    border: #ecf0f1 solid 1px;
+    padding: 40px;
+    background-color: #ffffff;
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 20px;
+      outline: none;
+      border: none;
+      background-color: #ecf0f1;
+      padding: 10px;
+      line-height: 2;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: $body-color;
+      color: $text-color;
+      font-size: 18px;
+      width: 100%;
+      outline: none;
+      border: none;
+      padding: 15px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 0;
+
+      a {
+        text-align: center;
+        text-decoration: none;
+        color: $text-color;
+        padding-left: 3px;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  display: inline-block;
+
+  a:link, a:visited {
+    background-color: $body-color;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+}
