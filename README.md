@@ -18,18 +18,17 @@ development and testing purposes
 - Docker Desktop
 - Login as username: `sandbox`  password: `seb2021`
 
-
 ### Installing
 
+Estimated Time: < 5 minutes
 ```
 git clone https://github.com/moseseth/recommender.git
-cd recommender/
-docker-compose up -d
+cd recommender/ && docker-compose up -d
 ```
 
 - [x] Backend runs as a spring boot app: http://localhost:8080
 - [x] Frontend runs as an angular app: http://localhost:4200
-- [x] Available endpoints:
+- [x] Available endpoints: 
 
 ```
 * api/auth (POST) {username, password}
@@ -42,3 +41,9 @@ Note:
 ```
 
 ### Running the tests
+
+missing docker test support therefore, please use local test.
+
+Local test:
+
+```mvn clean test```
